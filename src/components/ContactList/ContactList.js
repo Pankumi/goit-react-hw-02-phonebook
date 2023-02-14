@@ -1,5 +1,5 @@
 export const ContactList = ({ contacts }) => {
-  console.log(contacts);
+//   console.log(contacts);
   return (
     <ul>
       {contacts.map(({id, userName, userNumber}) => {
