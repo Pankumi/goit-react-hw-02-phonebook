@@ -1,43 +1,32 @@
 import React, { Component } from 'react';
-
-const ContactForm = () => {
-  return (
-    <form onSubmit={this.props.handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-      <button type="submit">Add contact</button>
-    </form>
-  );
-};
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList'
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      {id: 'ccdtG4LIHO8uGMN-Tt0GM', userName: 'aaaaaa'},
+      {id: 'ccdtG4LIHO8uGMN-Tt0Go', userName: 'bbbbbb'},
+    ],
     filter: '',
-  };
+  }
 
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const { login, email, password } = this.state;
-    console.log(`Login: ${login}, Email: ${email}, Password: ${password}`);
-    this.props.onSubmit({ ...this.state });
-    this.reset();
-  };
+  addContacts = contact => {
+    this.setState(prevState => {
+      return { contacts: [...prevState.contacts, contact] };
+    });
+  }
 
   render() {
+    // console.log(this.state);
     return (
       <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm addContacts={this.addContacts}/>
 
         <h2>Contacts</h2>
-        {/* <Filter />
-        <ContactList /> */}
+        {/* <Filter /> */}
+        <ContactList contacts={this.state.contacts}/>
       </div>
     );
   }
