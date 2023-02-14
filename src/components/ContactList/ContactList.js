@@ -2,11 +2,11 @@ export const ContactList = ({ contacts }) => {
   console.log(contacts);
   return (
     <ul>
-      {contacts.map(contact => {
-        console.log(contact.userName);
+      {contacts.map(({id, userName, userNumber}) => {
+        // console.log(contact);
         return (
-          <li>
-            <p>{contact.userName}</p>
+          <li key={id}>
+            <p>{userName}: {userNumber}</p>
           </li>
         );
       })}

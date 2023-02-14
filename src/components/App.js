@@ -5,8 +5,8 @@ import { ContactList } from './ContactList/ContactList'
 export class App extends Component {
   state = {
     contacts: [
-      {id: 'ccdtG4LIHO8uGMN-Tt0GM', userName: 'aaaaaa'},
-      {id: 'ccdtG4LIHO8uGMN-Tt0Go', userName: 'bbbbbb'},
+      {id: 'ccdtG4LIHO8uGMN-Tt0GM', userName: 'aaaaaa', userNumber: '1111111111'},
+      {id: 'ccdtG4LIHO8uGMN-Tt0Go', userName: 'bbbbbb', userNumber: '2222222222'},
     ],
     filter: '',
   }
