@@ -1,3 +1,5 @@
+import { ContactItem } from './ContactIten/Contact';
+
 export const ContactList = ({ contacts }) => {
 //   console.log(contacts);
   return (
@@ -5,9 +7,7 @@ export const ContactList = ({ contacts }) => {
       {contacts.map(({id, userName, userNumber}) => {
         // console.log(contact);
         return (
-          <li key={id}>
-            <p>{userName}: {userNumber}</p>
-          </li>
+          <ContactItem key={id} userName={userName} userNumber={userNumber} />
         );
       })}
     </ul>
