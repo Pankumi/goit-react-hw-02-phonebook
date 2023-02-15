@@ -1,13 +1,12 @@
-import { ContactItem } from './ContactIten/Contact';
+import { ContactItem } from './ContactIten/ContactItem';
 
-export const ContactList = ({ contacts }) => {
-//   console.log(contacts);
+export const ContactList = ({contacts, deleteContact}) => {
+//   console.log(props);
   return (
     <ul>
       {contacts.map(({id, userName, userNumber}) => {
-        // console.log(contact);
         return (
-          <ContactItem key={id} userName={userName} userNumber={userNumber} />
+          <ContactItem key={id} id={id} userName={userName} userNumber={userNumber} deleteContact={deleteContact}/>
         );
       })}
     </ul>

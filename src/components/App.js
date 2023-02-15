@@ -42,15 +42,21 @@ export class App extends Component {
     this.setState({ [name]: value });
   };
 
+  deleteContact = evt => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== evt.target.id)
+    })
+  }
+
   render() {
-    const filterContact = this.state.contacts.filter(contakt =>
-      contakt.userName
+    const filterContact = this.state.contacts.filter(contact =>
+      contact.userName
         .toLowerCase()
         .trim()
         .includes(this.state.filter.toLocaleLowerCase())
     );
-    // console.log(filterContact);
     // console.log(this.state);
+
     return (
       <div>
         <h1>Phonebook</h1>
@@ -61,7 +67,7 @@ export class App extends Component {
           filterValue={this.state.filter}
           filterChange={this.filterChange}
         />
-        <ContactList contacts={filterContact} />
+        <ContactList contacts={filterContact} deleteContact={this.deleteContact} />
       </div>
     );
   }
