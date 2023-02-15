@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// npm i styled-components
+import { Box } from "./Styled";
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -58,7 +60,7 @@ export class App extends Component {
     // console.log(this.state);
 
     return (
-      <div>
+      <Box>
         <h1>Phonebook</h1>
         <ContactForm addContacts={this.addContacts} />
 
@@ -68,7 +70,7 @@ export class App extends Component {
           filterChange={this.filterChange}
         />
         <ContactList contacts={filterContact} deleteContact={this.deleteContact} />
-      </div>
+      </Box>
     );
   }
 }

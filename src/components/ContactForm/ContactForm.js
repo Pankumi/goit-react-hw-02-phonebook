@@ -1,6 +1,7 @@
 // npm i nanoid
 import { nanoid } from 'nanoid';
 import React from 'react';
+import { AddUserForm, Button } from "./Styled";
 
 // Виносимо об'єкт із примітивами в константу, щоб було зручно скидати.
 // Не можна використовувати, якщо в якійсь властивості стану зберігається складний тип.
@@ -40,9 +41,9 @@ export class ContactForm extends React.Component {
     const { userName, userNumber } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <AddUserForm onSubmit={this.handleSubmit}>
         <label>
-          Name
+          Name &nbsp;
           <input
             type="text"
             placeholder="Enter name"
@@ -55,7 +56,7 @@ export class ContactForm extends React.Component {
         </label>
 
         <label>
-          Number
+          Number &nbsp;
           <input
             type="tel"
             placeholder="Enter tel"
@@ -67,8 +68,8 @@ export class ContactForm extends React.Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
-      </form>
+        <Button type="submit">Add contact</Button>
+      </AddUserForm>
     );
   }
 }
